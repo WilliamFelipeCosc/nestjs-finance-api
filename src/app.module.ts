@@ -4,6 +4,8 @@ import { configValidationSchema } from './config.schema';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { AuthModule } from './auth/auth.module';
+import { TransactionModule } from './transaction/transaction.module';
+import { CardModule } from './card/card.module';
 
 @Module({
   imports: [
@@ -34,6 +36,8 @@ import { AuthModule } from './auth/auth.module';
       },
     }),
     AuthModule,
+    TransactionModule,
+    CardModule,
   ],
   controllers: [],
   providers: [],
