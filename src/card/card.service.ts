@@ -31,7 +31,7 @@ export class CardService {
   async getCardsDecrypted(user: User): Promise<Card[]> {
     try {
       const cards = await this.cardRepository.getCards(user);
-      console.log(cards);
+
       const decryptedCards = cards.map((card) => {
         const { cvv, expire_date, number } = card;
 
@@ -69,7 +69,7 @@ export class CardService {
           expire_date: expire_date_decrypted.toString('utf-8'),
         };
       });
-      console.log(decryptedCards);
+
       return decryptedCards;
     } catch (e) {
       this.logger.error(`Failed to get cards for user "${user.username}"`);
